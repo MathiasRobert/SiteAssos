@@ -94,3 +94,42 @@
     left: auto;
     right: 12px; }
 }
+
+.bde,
+.bde:hover,
+.bde:active,
+.bde:visited,
+.bde:focus {
+    background-color: #95181a;
+    border-color: #95181a;
+}
+
+.bds,
+.bds:hover,
+.bds:active,
+.bds:visited,
+.bds:focus {
+    background-color: #051e1e;
+    border-color: #051e1e;
+}
+
+.bda,
+.bda:hover,
+.bda:active,
+.bda:visited,
+.bda:focus {
+    background-color: #64b44b;
+    border-color: #64b44b;
+}
+
+.je,
+.je:hover,
+.je:active,
+.je:visited,
+.je:focus {
+    background-color: #009EE0;
+    border-color: #009EE0;
+}
+
+
+

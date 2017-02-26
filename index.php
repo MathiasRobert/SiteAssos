@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +78,7 @@
             </div>
             <!-- End Carousel Card -->
         <!-- you can use the class main-raised if you want the main area to be as a page with shadows -->
-        <div class="main">
+        <div class="main main-raised">
             <!-- Page Content -->
             <div class="container">
 
@@ -88,76 +89,46 @@
                         </h1>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:480px;height:480px;">
-                            <img src="images/bde.jpg" alt="logoBDE" class="img-thumbnail" style="min-height:250px;height:250px;">
+                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #95181a">
+                            <img src="images/bde.jpg" alt="logoBDE" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
                             <div class="caption">
                                 <h3>BDE - Bureau des élèves</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                <p class="text-right"><a href="#" class="btn bde" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:480px;height:480px;">
-                            <img src="images/bds.png" alt="logoBDS" class="img-thumbnail" style="min-height:250px;height:250px;">
+                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #051e1e">
+                            <img src="images/bds.png" alt="logoBDS" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
                             <div class="caption">
                                 <h3>BDS - Bureau des sports</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                <p class="text-right"><a href="#" class="btn bds" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:480px;height:480px;">
-                            <img src="images/bda.png" alt="logoBDA" class="img-thumbnail" style="min-height:250px;height:250px;">
+                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #64b44b">
+                            <img src="images/bda.png" alt="logoBDA" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
                             <div class="caption">
                                 <h3>BDE - Bureau des arts</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                <p class="text-right"><a href="#" class="btn bda" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:480px;height:480px;">
-                            <img src="images/je.png" alt="logoJE" class="img-thumbnail" style="min-height:250px;height:250px;">
+                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #009EE0">
+                            <img src="images/je.png" alt="logoJE" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
                             <div class="caption">
                                 <h3>JE - Junior entreprise</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                <p class="text-right"><a href="#" class="btn je" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4">
-                    <div class="card card-image">
-
-                        <div class="header header-primary text-center">
-                            BDE<small> - Bureau des élèves</small>
-                        </div>
-                        <div class="content">
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        </div>
-                        <div class="footer text-center">
-                            <a href="#" class="btn btn-primary" role="button">Button</a>
-                            <a href="#" class="btn btn-default" role="button">Button</a>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="card card-image card-image-headline" style="background-image: url('images/bde.jpg');background-size: 250px 250px;">
-                            <div class="header header-primary text-center">
-                            BDE<small> - Bureau des élèves</small>
-                        </div>
-                        <div class="content">
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        </div>
-                        <div class="footer text-center">
-                            <a href="#" class="btn btn-primary" role="button">Button</a>
-                            <a href="#" class="btn btn-default" role="button">Button</a>
-                        </div>
-                        </div>
-                    </div>
+        
                 </div>
                 <!-- /.row -->
 
