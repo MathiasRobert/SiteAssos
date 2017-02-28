@@ -37,8 +37,21 @@
                 <li>
                     <a href=""><i class="material-icons">event</i> Calendrier</a>
                 </li>
-                <li data-toggle="modal" data-target="#myModal">
-                    <a href="#">Connexion</a>
+                <li>
+                    <?php
+                    if(!isset($_SESSION['NOM_USER']))
+                        echo '<a id="customBtn" >Connexion</a>';
+                    else
+                        echo '<li class="dropdown avatar-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> '.$_SESSION['NOM_USER'].' <img id="avatar" class="img-circle" src="'.$_SESSION['URL_IMAGE_USER'].'" alt="avatar"><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                        <li>
+                            <a href="">Mon compte</a>
+                        </li>
+                        <li>
+                            <a href="" onClick="signOut()">Se déconnecter</a>
+                        </li></ul></li>'
+                    ?>
                 </li>
             </ul>
         </div>
@@ -57,6 +70,10 @@
                     <h4>Connexion</h4>
                 </div>
                 <div class="content">
+                    <button class="btn btn-social btn-fill btn-google">
+                        <i class="fa fa-google-square"></i> Connexion avec @ensc.fr
+                        <div class="ripple-container"></div>
+                    </button>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">email</i>

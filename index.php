@@ -1,6 +1,9 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -23,6 +26,10 @@
     <link href="material-kit/css/bootstrap.min.css" rel="stylesheet" />
     <link href="material-kit/css/material-kit.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="js/init.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
 
@@ -128,7 +135,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                 </div>
                 <!-- /.row -->
 
@@ -144,6 +151,8 @@
 
 
 </body>
+
+<<script src="js/connexion.js" type="text/javascript"></script>
 
 <!--   Core JS Files   -->
 <script src="material-kit/js/jquery.min.js" type="text/javascript"></script>

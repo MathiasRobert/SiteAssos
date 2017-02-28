@@ -11,13 +11,13 @@ $client = new Google_Client();
 $payload = $client->verifyIdToken($id_token);
 if ($payload) {
   $userid = $payload['sub'];
-  // If request specified a G Suite domain:
-  $domain = $payload['hd'];
 
-  echo $userid;
-  echo '<br>'.$domain;
-  echo '<br>'.$id_token;
+  $domain = "null";
+  if(isset($payload['hd']))
+    $domain = $payload['hd'];
+
+  echo $userid.' '.$domain;
 } else {
-  // Invalid ID token
+  return false;
 }
 ?>
