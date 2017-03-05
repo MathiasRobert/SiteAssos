@@ -1,19 +1,19 @@
 /*!
-
+    
  =========================================================
  * Material Kit - v1.1.1.0
  =========================================================
-
+ 
  * Product Page: http://www.creative-tim.com/product/material-kit
  * Copyright 2017 Creative Tim (http://www.creative-tim.com)
  * Licensed under MIT (https://github.com/timcreative/material-kit/blob/master/LICENSE.md)
-
+ 
  =========================================================
-
+ 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
+ 
  */
-
+ 
 /* ANIMATION */
 /* SHADOWS */
 /* Shadows (from mdl http://www.getmdl.io/) */
@@ -2765,7 +2765,7 @@ h2.title {
 }
 
 .carousel .carousel-control {
-  width: 15%;
+  width: 50%;
 }
 .carousel .carousel-control.left, .carousel .carousel-control.right {
   background-image: none;
@@ -2775,30 +2775,10 @@ h2.title {
   display: none;
 }
 .carousel .left {
-  /*cursor: url("../img/arrow-left.png"), url("../img/arrow-left.cur"), default !important;*/
+  cursor: url("../img/arrow-left.png"), url("../img/arrow-left.cur"), default !important;
 }
 .carousel .right {
-  /*cursor: url("../img/arrow-right.png"), url("../img/arrow-right.cur"), default !important;*/
-}
-.carousel-control .icon-prev,
-.carousel-control .icon-next,
-.carousel-control .glyphicon-chevron-left,
-.carousel-control .glyphicon-chevron-right {
-  position: absolute;
-  top: 50%;
-  margin-top: -10px;
-  z-index: 5;
-  display: inline-block;
-}
-.carousel-control .icon-prev,
-.carousel-control .glyphicon-chevron-left {
-  left: 50%;
-  margin-left: -10px;
-}
-.carousel-control .icon-next,
-.carousel-control .glyphicon-chevron-right {
-  right: 50%;
-  margin-right: -10px;
+  cursor: url("../img/arrow-right.png"), url("../img/arrow-right.cur"), default !important;
 }
 .carousel .carousel-indicators {
   bottom: 5px;

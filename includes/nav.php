@@ -18,7 +18,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Les Assos <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="">BDE</a>
+                            <a href="pageAsso.php?asso=bde">BDE</a>
                         </li>
                         <li>
                             <a href="">BDS</a>
@@ -37,23 +37,26 @@
                 <li>
                     <a href=""><i class="material-icons">event</i> Calendrier</a>
                 </li>
-                <li>
                     <?php
                     if(!isset($_SESSION['NOM_USER']))
-                        echo '<a id="customBtn" >Connexion</a>';
+                        echo '<li><a id="customBtn">Connexion</a></li>';
                     else
-                        echo '<li class="dropdown avatar-dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> '.$_SESSION['NOM_USER'].' <img id="avatar" class="img-circle" src="'.$_SESSION['URL_IMAGE_USER'].'" alt="avatar"><b class="caret"></b></a>
+                        echo '<li class="dropdown">
+                                <a href="#" class="profile-photo dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><div class="profile-photo-small"><img id="avatar" class="img-circle img-responsive" src="'.$_SESSION['URL_IMAGE_USER'].'" alt="avatar"></div> <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                         <li>
                             <a href="">Mon compte</a>
                         </li>
                         <li>
-                            <a href="" onClick="signOut()">Se déconnecter</a>
+                            <a href="" onClick="signOut(0)">Se déconnecter</a>
                         </li></ul></li>'
                     ?>
-                </li>
             </ul>
+
+            <?php
+            include('alertes.php');
+            ?>
+
         </div>
         <!-- /.navbar-collapse -->
     </div>

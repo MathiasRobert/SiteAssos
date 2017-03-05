@@ -23,36 +23,63 @@ function attachSignin(element) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           var rep = xhr.responseText.split(' ');
           var profile = googleUser.getBasicProfile();
-          console.log(rep);
           if(rep[0] != profile.getId()) {
-            console.log("Erreur ID");
+            alerteErreurID(1);
             signOut();
           } else if(rep[1] != "ensc.fr") {
-            console.log("Erreur domaine");
-            signOut();
+            alerteErreurDomaine();
+            signOut(2);
           } else {
-            $.post( "traiteConnexionSession.php", { name: profile.getName(), image: profile.getImageUrl(), email: profile.getEmail() });
-            alertSuccess(profile.getName());
+            $.post(
+              "traiteConnexionSession.php",
+              { name: profile.getName(), image: profile.getImageUrl(), email: profile.getEmail() },
+              function (data) {
+                document.location = data.location;
+              },
+              'json');
           }
         } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status != 200) {
-          console.log("Erreur");
-          signOut();
+          alerteErreur();
+          signOut(3);
         }
       };
       xhr.send('idtoken=' + id_token);
-        }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
-        });
+    }, function(error) {
+      console.log(JSON.stringify(error, undefined, 2));
+    });
 }
-function signOut() {
+
+function signOut(i) {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
-  console.log('User signed out.');
+    $.post("traiteDeconnexionSession.php");
+    if(i == 0)
+      document.location += '?alerteDeconnexion=true';
+    else if(i == 1)
+      document.location += '?alerteErreurID=true';
+    else if(i == 2)
+      document.location += '?alerteErreurDomaine=true';
+    else if(i == 3)
+      document.location += '?alerteErreur=true';
   });
 };
 
-function alertSuccess(name) {
-  var alert = '<div class="alert alert-success fade in"><div class="container"><div class="alert-icon"><i class="material-icons">check</i></div><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="material-icons">clear</i></span></button><b>Success Alert:</b> Bienvenue ' + name + '</div></div>';
-  $(".nav").after(alert);
-  console.log("saluttt");
-   }
+function alerteErreurID() {
+  var alert = '<div class="alert alert-danger"> <div class="container"> <div class="alert-icon"> <i class="material-icons">error_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Erreur ID !</b> </div> </div>';
+  setTimeout($(".nav").after(alert), 2000);
+}
+
+function alerteErreurDomaine() {
+  var alert = '<div class="alert alert-danger"> <div class="container"> <div class="alert-icon"> <i class="material-icons">error_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Erreur domaine !</b> Connectez-vous avec votre adresse @ensc.fr !</div> </div>';
+  setTimeout($(".nav").after(alert), 5000);
+}
+
+function alerteErreur() {
+  var alert = '<div class="alert alert-danger"> <div class="container"> <div class="alert-icon"> <i class="material-icons">error_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Erreur !</b> </div> </div>';
+  setTimeout($(".nav").after(alert), 2000);
+}
+
+function alerteDeconnexion() {
+  var alert = '<div class="alert alert-info"> <div class="container"> <div class="alert-icon"> <i class="material-icons">info_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Au revoir !</b> </div> </div>';
+  setTimeout($(".nav").after(alert), 2000);
+}

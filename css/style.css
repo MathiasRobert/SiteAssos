@@ -16,6 +16,13 @@
     border: 0;
 }
 
+.carousel .left {
+  cursor: default !important;
+}
+.carousel .right {
+  cursor: default !important;
+}
+
 @media (max-width: 991px) {
 .carousel .page-header-carousel {
     padding: 0 30px;
@@ -135,26 +142,28 @@
     cursor: pointer;
 }
 
-#avatar {
-    margin: 0px;
-    min-height: 50px;
-    height: 50px;
-}
-.avatar-dropdown {
-    margin: -14px;
-    min-height: 50px;
-    height: 50px;
+.navbar .navbar-nav > li > .profile-photo {
+    margin: 5px 2px;
 }
 
-.btn.btn-google.btn-simple {
-    color: #dd4b39;
-    background-color: transparent;
-    box-shadow: none;
+.navbar .navbar-nav .profile-photo {
+    padding: 0;
 }
 
-.btn.btn-google {
-    background-color: #dd4b39;
-    color: #fff;
-    box-shadow: 0 2px 2px 0 rgba(221, 75, 57, 0.14), 0 3px 1px -2px rgba(221, 75, 57, 0.2), 0 1px 5px 0 rgba(221, 75, 57, 0.12);
+.navbar .navbar-nav .profile-photo .profile-photo-small {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.thumbnail-assos {
+    min-height: 470px;
+    height: 470px;
+}
+
+.img-responsive, .thumbnail>img, .img-thumbnail-assos{
+    min-height: 200px;
+    height: 200px;
 }
 

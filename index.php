@@ -54,21 +54,18 @@ session_start();
                     <div class="carousel-inner">
                         <div class="item active">
                         <div class="page-header page-header-carousel" style="background-image: url('material-kit/img/bg2.jpeg');">
-                            <!-- <img src="material-kit/img/bg2.jpeg" alt="Awesome Image"> -->
                             <div class="carousel-caption">
                                 <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
                             </div></div>
                         </div>
                         <div class="item">
                         <div class="page-header page-header-carousel" style="background-image: url('material-kit/img/bg3.jpeg');">
-                            <!-- <img src="material-kit/img/bg3.jpeg" alt="Awesome Image"> -->
                             <div class="carousel-caption">
                                 <h4><i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
                             </div></div>
                         </div>
                         <div class="item">
                         <div class="page-header page-header-carousel" style="background-image: url('material-kit/img/bg4.jpeg');">
-                            <!-- <img src="material-kit/img/bg4.jpeg" alt="Awesome Image"> -->
                             <div class="carousel-caption">
                                 <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
                             </div></div>
@@ -85,57 +82,62 @@ session_start();
             </div>
             <!-- End Carousel Card -->
         <!-- you can use the class main-raised if you want the main area to be as a page with shadows -->
-        <div class="main main-raised">
+        <div class="main">
             <!-- Page Content -->
             <div class="container">
 
                 <div class="row">
-                    <div class="col-lg-12">
+                <div class="col-lg-12">
                         <h1 class="page-header">
                             Bienvenue sur le site des assos de l'ENSC !
                         </h1>
                     </div>
+                    <div class="col-sm-8">
+
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #95181a">
-                            <img src="images/bde.jpg" alt="logoBDE" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
+                        <div class="thumbnail thumbnail-assos" style="border-color: #95181a">
+                            <img src="images/bde.jpg" alt="logoBDE" class="img-rounded img-responsive img-thumbnail-assos">
                             <div class="caption">
                                 <h3>BDE - Bureau des élèves</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                                <p class="text-right"><a href="#" class="btn bde" role="button">En savoir plus</a></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at </p>
+                                <p class="text-right"><a href="pageAsso.php?asso=bde" class="btn bde" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #051e1e">
-                            <img src="images/bds.png" alt="logoBDS" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
+                        <div class="thumbnail thumbnail-assos" style="border-color: #051e1e">
+                            <img src="images/bds.png" alt="logoBDS" class="img-rounded img-responsive img-thumbnail-assos">
                             <div class="caption">
                                 <h3>BDS - Bureau des sports</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at </p>
                                 <p class="text-right"><a href="#" class="btn bds" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #64b44b">
-                            <img src="images/bda.png" alt="logoBDA" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
+                        <div class="thumbnail thumbnail-assos" style="border-color: #64b44b">
+                            <img src="images/bda.png" alt="logoBDA" class="img-rounded img-responsive img-thumbnail-assos">
                             <div class="caption">
                                 <h3>BDE - Bureau des arts</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at </p>
                                 <p class="text-right"><a href="#" class="btn bda" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" style="min-height:500px;height:500px;border-color: #009EE0">
-                            <img src="images/je.png" alt="logoJE" class="img-rounded img-responsive" style="min-height:250px;height:250px;">
+                        <div class="thumbnail thumbnail-assos" style="border-color: #009EE0">
+                            <img src="images/je.png" alt="logoJE" class="img-rounded img-responsive img-thumbnail-assos">
                             <div class="caption">
                                 <h3>JE - Junior entreprise</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at </p>
                                 <p class="text-right"><a href="#" class="btn je" role="button">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
-
+                    </div>
+                    <div class="col-sm-3 offset-sm-1">
+                        <iframe id="fb-integre" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flpm2017%2F&tabs=timeline%2C%20events&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=1516751638566181" width="340" height="500" style="overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                    </div>
                 </div>
                 <!-- /.row -->
 
@@ -152,7 +154,7 @@ session_start();
 
 </body>
 
-<<script src="js/connexion.js" type="text/javascript"></script>
+<script src="js/connexion.js" type="text/javascript"></script>
 
 <!--   Core JS Files   -->
 <script src="material-kit/js/jquery.min.js" type="text/javascript"></script>
