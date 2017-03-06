@@ -24,10 +24,8 @@ function attachSignin(element) {
           var rep = xhr.responseText.split(' ');
           var profile = googleUser.getBasicProfile();
           if(rep[0] != profile.getId()) {
-            alerteErreurID(1);
-            signOut();
+            signOut(1);
           } else if(rep[1] != "ensc.fr") {
-            alerteErreurDomaine();
             signOut(2);
           } else {
             $.post(
@@ -39,7 +37,6 @@ function attachSignin(element) {
               'json');
           }
         } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status != 200) {
-          alerteErreur();
           signOut(3);
         }
       };
@@ -53,33 +50,14 @@ function signOut(i) {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
     $.post("traiteDeconnexionSession.php");
-    if(i == 0)
-      document.location += '?alerteDeconnexion=true';
-    else if(i == 1)
+
+    if(i == 1)
       document.location += '?alerteErreurID=true';
     else if(i == 2)
       document.location += '?alerteErreurDomaine=true';
     else if(i == 3)
       document.location += '?alerteErreur=true';
+    else if(i == 0)
+      document.location += '?alerteDeconnexion=true';
   });
 };
-
-function alerteErreurID() {
-  var alert = '<div class="alert alert-danger"> <div class="container"> <div class="alert-icon"> <i class="material-icons">error_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Erreur ID !</b> </div> </div>';
-  setTimeout($(".nav").after(alert), 2000);
-}
-
-function alerteErreurDomaine() {
-  var alert = '<div class="alert alert-danger"> <div class="container"> <div class="alert-icon"> <i class="material-icons">error_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Erreur domaine !</b> Connectez-vous avec votre adresse @ensc.fr !</div> </div>';
-  setTimeout($(".nav").after(alert), 5000);
-}
-
-function alerteErreur() {
-  var alert = '<div class="alert alert-danger"> <div class="container"> <div class="alert-icon"> <i class="material-icons">error_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Erreur !</b> </div> </div>';
-  setTimeout($(".nav").after(alert), 2000);
-}
-
-function alerteDeconnexion() {
-  var alert = '<div class="alert alert-info"> <div class="container"> <div class="alert-icon"> <i class="material-icons">info_outline</i> </div> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true"><i class="material-icons">clear</i></span> </button> <b>Au revoir !</b> </div> </div>';
-  setTimeout($(".nav").after(alert), 2000);
-}

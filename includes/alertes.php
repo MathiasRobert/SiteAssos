@@ -14,21 +14,9 @@ if(isset($_SESSION['alerteConnexion']) && $_SESSION['alerteConnexion'])
             Bienvenue '.$_SESSION['NOM_USER'].'
           </div>
         </div>';
+        $_SESSION['alerteConnexion'] = false;
 }
-if(isset($_GET['alerteDeconnexion']) && $_GET['alerteDeconnexion'])
-{
-  echo '<div class="alert alert-info">
-          <div class="container-fluid">
-            <div class="alert-icon">
-              <i class="material-icons">info_outline</i>
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true"><i class="material-icons">clear</i></span>
-            </button>
-            <b>Déconnexion réussi.</b>
-          </div>
-        </div>';
-}
+
 if(isset($_GET['alerteErreurID']) && $_GET['alerteErreurID'])
 {
   echo '<div class="alert alert-danger">
@@ -45,7 +33,7 @@ if(isset($_GET['alerteErreurID']) && $_GET['alerteErreurID'])
           </div>
         </div>';
 }
-if(isset($_GET['alerteErreurDomaine']) && $_GET['alerteErreurDomaine'])
+else if(isset($_GET['alerteErreurDomaine']) && $_GET['alerteErreurDomaine'])
 {
   echo '<div class="alert alert-danger">
           <div class="container">
@@ -61,7 +49,7 @@ if(isset($_GET['alerteErreurDomaine']) && $_GET['alerteErreurDomaine'])
           </div>
         </div>';
 }
-if(isset($_GET['alerteErreur']) && $_GET['alerteErreur'])
+else if(isset($_GET['alerteErreur']) && $_GET['alerteErreur'])
 {
   echo '<div class="alert alert-danger">
           <div class="container">
@@ -74,6 +62,20 @@ if(isset($_GET['alerteErreur']) && $_GET['alerteErreur'])
               </span>
             </button>
             <b>Erreur !</b>
+          </div>
+        </div>';
+}
+else if(isset($_GET['alerteDeconnexion']) && $_GET['alerteDeconnexion'])
+{
+  echo '<div class="alert alert-info">
+          <div class="container-fluid">
+            <div class="alert-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            <b>Déconnexion réussi.</b>
           </div>
         </div>';
 }

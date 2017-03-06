@@ -162,7 +162,7 @@
     height: 470px;
 }
 
-.img-responsive, .thumbnail>img, .img-thumbnail-assos{
+.thumbnail>img, .img-thumbnail-assos{
     min-height: 200px;
     height: 200px;
 }
