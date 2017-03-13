@@ -2,6 +2,7 @@ drop table if exists UTILISATEUR;
 drop table if exists ASSOCIATION;
 drop table if exists EVENEMENT;
 drop table if exists ARTICLE;
+drop table if exists CATEGORIE;
 drop table if exists COMMENTAIRE;
 drop table if exists EQUIPE;
 
@@ -55,10 +56,18 @@ create table EVENEMENT (
 create table ARTICLE (
     arti_id integer not null primary key auto_increment,
     asso_id integer not null,
+    cate_id integer not null,
     arti_titre varchar(50) not null,
     arti_texte text,
+    arti_dateHeure datetime not null,
     arti_photo varchar(150),
-    foreign key (asso_id) references ASSOCIATION (asso_id)
+    foreign key (asso_id) references ASSOCIATION (asso_id),
+    foreign key (cate_id) references CATEGORIE (cate_id),
+) engine=innodb character set utf8 collate utf8_unicode_ci;
+
+create table CATEGORIE (
+    cate_id integer not null primary key auto_increment,
+    cate_nom varchar(50) not null
 ) engine=innodb character set utf8 collate utf8_unicode_ci;
 
 create table COMMENTAIRE (

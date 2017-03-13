@@ -8,6 +8,6 @@ if(isset($_POST['image']))
 if(isset($_POST['email']))
   $_SESSION['EMAIL_USER'] = $_POST['email'];
 
-$_SESSION['alerteConnexion'] = true;
+$_SESSION['alerteConnexion'] = 'true';
 echo json_encode(array("location" => "index.php"));
 ?>

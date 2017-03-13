@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -15,23 +15,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
+                    <?php include('requeteNav.php'); ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Les Assos <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href="pageAsso.php?asso=bde">BDE</a>
-                        </li>
-                        <li>
-                            <a href="">BDS</a>
-                        </li>
-                        <li>
-                            <a href="">BDA</a>
-                        </li>
-                        <li>
-                            <a href="">JE</a>
-                        </li>
-                        <li>
-                            <a href="">Autres</a>
-                        </li>
+                    <?php
+                    foreach ($associationsNav as $a) {
+                        echo '<li>
+                            <a href="pageAsso.php?asso_id='.$a->asso_id.'">'.$a->asso_diminutif.'</a>
+                        </li>';
+                    }
+                    ?>
                     </ul>
                 </li>
                 <li>

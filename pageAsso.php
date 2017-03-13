@@ -1,38 +1,25 @@
 <?php
 session_start();
+
+echo ini_get('display_errors');
+
+if (!ini_get('display_errors')) {
+    ini_set('display_errors', '1');
+}
+
+echo ini_get('display_errors');
+
+if(isset($_GET['asso_id']))
+    $asso_id = $_GET['asso_id'];
+include('includes/connect.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Assos ENSC</title>
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-    <!-- CSS Files -->
-    <link href="material-kit/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="material-kit/css/material-kit.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/pageAsso.css" rel="stylesheet"/>
-
-    <script src="https://apis.google.com/js/platform.js"></script>
-    <script src="https://apis.google.com/js/api:client.js"></script>
-    <script src="js/init.js" type="text/javascript" charset="utf-8"></script>
-
-</head>
+<?php
+include('includes/head.php');
+?>
 
 <body>
 
@@ -50,24 +37,24 @@ session_start();
             <div class="container">
 
                 <div class="card card-nav-tabs">
-                    <div class="header header-primary">
+                    <div class="header">
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
                                 <ul class="nav nav-tabs" data-tabs="tabs">
                                     <li class="active">
-                                        <a href="#profile" data-toggle="tab">
+                                        <a href="#articles" data-toggle="tab">
                                             <i class="material-icons">subject</i>
                                             Articles
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#messages" data-toggle="tab">
+                                        <a href="#evenements" data-toggle="tab">
                                             <i class="material-icons">event_note</i>
                                             Evènements
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#settings" data-toggle="tab">
+                                        <a href="#infos" data-toggle="tab">
                                             <i class="material-icons">supervisor_account</i>
                                             Informations
                                         </a>
@@ -85,28 +72,86 @@ session_start();
                         </div>
                     </div>
                     <div class="content">
-                        <div class="tab-content text-center">
-                            <div class="tab-pane active" id="profile">
-                                <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="articles">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <br>
+                                            <?php
+                                            include('includes/requeteArticlesAssos.php');
+
+                                            foreach ($articles as $a) {
+
+                                                //$texteCourt = substr($a->arti_texte, 0, 250);
+                                                echo '<div class="card card-plain card-blog">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="card-image">
+                                                            <img class="img img-raised" src="'.$a->arti_photo.'">
+                                                            <div class="ripple-container"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h6 class="category text-info">Enterprise</h6>
+                                                        <h3 class="card-title">
+                                                            <a href="#pablo">'.$a->arti_titre.'</a>
+                                                        </h3>
+                                                        <p class="card-description">'.$a->texteCourt.'… <a href="#pablo"> Lire Plus </a></p>
+                                                        <p class="author">
+                                                            by <a href="#pablo"><b>Mike Butcher</b></a>, '.$a->arti_dateHeure.'
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>';
+                                        }
+                                        ?>
+                                        <div class="card card-plain card-blog">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="card-image">
+                                                        <img class="img img-raised" src="images/card-blog4.jpg">
+                                                        <div class="ripple-container"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h6 class="category text-info">Enterprise</h6>
+                                                    <h3 class="card-title">
+                                                        <a href="#pablo">Autodesk looks to future of 3D printing with Project Escher</a>
+                                                    </h3>
+                                                    <p class="card-description">
+                                                        Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story — and… <a href="#pablo"> Read More </a>
+                                                    </p>
+                                                    <p class="author">
+                                                        by <a href="#pablo"><b>Mike Butcher</b></a>, 2 days ago
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tab-pane" id="messages">
-                                <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
-                            </div>
-                            <div class="tab-pane" id="settings">
-                                <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
-                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="evenements">
+                            <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                        </div>
+                        <div class="tab-pane" id="infos">
+                            <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
                         </div>
                     </div>
                 </div>
-
-                <?php
-                include('includes/footer.php');
-                ?>
-
             </div>
-            <!-- /.container -->
+
+            <?php
+            include('includes/footer.php');
+            ?>
+
         </div>
+        <!-- /.container -->
     </div>
+</div>
 
 
 

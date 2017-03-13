@@ -1,37 +1,25 @@
 <?php
 session_start();
+
+
+echo ini_get('display_errors');
+
+if (!ini_get('display_errors')) {
+    ini_set('display_errors', '1');
+}
+
+echo ini_get('display_errors');
+
+include('includes/connect.php');
+
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Assos ENSC</title>
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-    <!-- CSS Files -->
-    <link href="material-kit/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="material-kit/css/material-kit.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-
-    <script src="https://apis.google.com/js/platform.js"></script>
-    <script src="https://apis.google.com/js/api:client.js"></script>
-    <script src="js/init.js" type="text/javascript" charset="utf-8"></script>
-
-</head>
+<?php
+include('includes/head.php');
+?>
 
 <body>
 
@@ -94,7 +82,25 @@ session_start();
                     </div>
                     <div class="col-sm-8">
 
-                    <div class="col-sm-6 col-md-4">
+                    <?php
+                    include('includes/requeteIndex.php');
+
+                    foreach ($associations as $a) {
+                        echo '<div class="col-sm-6 col-md-4">
+                                <div class="thumbnail thumbnail-assos" style="border-color: '.$a->asso_couleur.'">
+                                    <img src="'.$a->asso_logo.'" alt="logo'.$a->asso_diminutif.'" class="img-rounded img-responsive img-thumbnail-assos">
+                                    <div class="caption">
+                                        <h3>'.$a->asso_diminutif.' - '.$a->asso_nom.'</h3>
+                                            <p>'.$a->asso_description_court.'</p>
+                                            <p class="text-right"><a href="pageAsso.php?asso_id='.$a->asso_id.'" class="btn" role="button" style="background-color: '.$a->asso_couleur.'">En savoir plus</a></p>
+                                    </div>
+                                </div>
+                            </div>';
+                    }
+                    ?>
+
+
+                    <!-- <div class="col-sm-6 col-md-4">
                         <div class="thumbnail thumbnail-assos" style="border-color: #95181a">
                             <img src="images/bde.jpg" alt="logoBDE" class="img-rounded img-responsive img-thumbnail-assos">
                             <div class="caption">
@@ -134,7 +140,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    </div>
+                    </div> -->
                     <div class="col-sm-3 offset-sm-1">
                         <iframe id="fb-integre" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flpm2017%2F&tabs=timeline%2C%20events&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=1516751638566181" width="340" height="500" style="overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                     </div>

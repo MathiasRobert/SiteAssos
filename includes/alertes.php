@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['alerteConnexion']) && $_SESSION['alerteConnexion'])
+if(isset($_SESSION['alerteConnexion']) && $_SESSION['alerteConnexion'] == 'true')
 {
   echo '<div class="alert alert-success fade in">
           <div class="container">
@@ -14,7 +14,7 @@ if(isset($_SESSION['alerteConnexion']) && $_SESSION['alerteConnexion'])
             Bienvenue '.$_SESSION['NOM_USER'].'
           </div>
         </div>';
-        $_SESSION['alerteConnexion'] = false;
+        $_SESSION['alerteConnexion'] = 'false';
 }
 
 if(isset($_GET['alerteErreurID']) && $_GET['alerteErreurID'])
