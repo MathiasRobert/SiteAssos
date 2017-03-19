@@ -61,7 +61,7 @@ include('includes/head.php');
 
                                     </li>
                                     <li>
-                                        <a href="#settings" data-toggle="tab">
+                                        <a href="#contact" data-toggle="tab">
                                             <i class="material-icons">email</i>
                                             Contact
                                         </a>
@@ -88,12 +88,12 @@ include('includes/head.php');
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="card-image">
-                                                            <img class="img img-raised" src="'.$a->arti_photo.'">
+                                                            <div class="img img-raised" style="background-image:url('.$a->arti_photo.')"></div>
                                                             <div class="ripple-container"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <h6 class="category text-info">Enterprise</h6>
+                                                        <h6 class="category text-info">'.$a->cate_nom.'</h6>
                                                         <h3 class="card-title">
                                                             <a href="#pablo">'.$a->arti_titre.'</a>
                                                         </h3>
@@ -106,29 +106,6 @@ include('includes/head.php');
                                             </div>';
                                         }
                                         ?>
-                                        <div class="card card-plain card-blog">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="card-image">
-                                                        <img class="img img-raised" src="images/card-blog4.jpg">
-                                                        <div class="ripple-container"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h6 class="category text-info">Enterprise</h6>
-                                                    <h3 class="card-title">
-                                                        <a href="#pablo">Autodesk looks to future of 3D printing with Project Escher</a>
-                                                    </h3>
-                                                    <p class="card-description">
-                                                        Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story — and… <a href="#pablo"> Read More </a>
-                                                    </p>
-                                                    <p class="author">
-                                                        by <a href="#pablo"><b>Mike Butcher</b></a>, 2 days ago
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -139,6 +116,68 @@ include('includes/head.php');
                         </div>
                         <div class="tab-pane" id="infos">
                             <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                        </div>
+                        <div class="tab-pane" id="contact">
+
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-contact card-raised">
+                                            <form role="form" id="contact-form" method="post">
+                                                <div class="header header-raised text-center">
+                                                    <h4 class="card-title">Par Email</h4>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Nom Prénom</label>
+                                                            <input type="text" name="name" class="form-control">
+                                                            <span class="material-input"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Email</label>
+                                                            <input type="email" name="email" class="form-control">
+                                                            <span class="material-input"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group label-floating is-empty">
+                                                    <label class="control-label">Votre message</label>
+                                                    <textarea name="message" class="form-control" id="message" rows="8"></textarea>
+                                                    <span class="material-input"></span>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <button type="submit" class="btn pull-right">Envoyer</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <!-- <div class="info info-horizontal">
+                                            <div class="icon">
+                                                <i class="material-icons">pin_drop</i>
+                                            </div>
+                                            <div class="description">
+                                                <h5 class="info-title">Find us at the office</h5>
+                                                <p> Bld Mihail Kogalniceanu, nr. 8,<br>
+                                                    7652 Bucharest,<br>
+                                                    Romania
+                                                </p>
+                                            </div>
+                                        </div> -->
+                                        <iframe width="100%" height="50%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=ensc&key=AIzaSyDfrPJouGTqI-bxkH5S7dqrhzHHXfdJOx4" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
