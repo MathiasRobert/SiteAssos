@@ -6,7 +6,7 @@ $(document).ready(function() {
         aspectRatio: 2,
         header: {
           left:   'title',
-          center: 'basicWeek,month,listMonth',
+          center: 'agendaWeek,month,listMonth',
           right:  'today prev,next'
         },
 

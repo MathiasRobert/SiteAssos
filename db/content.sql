@@ -44,13 +44,13 @@ Fusce tortor elit, ultrices molestie ipsum ornare, scelerisque volutpat nisl. Nu
 , '2017-03-12 18:45:00.000000', "images/nuitInges.jpg");
 
 insert into EVENEMENT values
-  (1, 1, "Nuit des ingés", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
+  (1, 1, "Nuit des ingés", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "2017-03-24", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
 insert into EVENEMENT values
-  (2, 1, "Nuit des ingés 2", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
+  (2, 2, "Nuit des ingés 2", "Batchanga", "St Patrick", "2017-03-28","23:00:00.000000", "2017-03-29", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
 insert into EVENEMENT values
-  (3, 1, "Nuit des ingés 3", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
+  (3, 1, "Nuit des ingés 3", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "2017-03-24", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
 insert into EVENEMENT values
-  (4, 1, "Nuit des ingés 4", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
+  (4, 1, "Nuit des ingés 4", "Batchanga", "St Patrick", "2017-03-23","23:00:00.000000", "2017-03-24", "05:00:00.000000", "8", "Bières : 1€", null, "images/nuitInges.jpg");
 
 
 
