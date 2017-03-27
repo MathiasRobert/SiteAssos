@@ -23,8 +23,10 @@ function attachSignin(element) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           var rep = xhr.responseText.split(' ');
           var profile = googleUser.getBasicProfile();
+          console.log(rep);
+          console.log(profile.getId());
           if(rep[0] != profile.getId()) {
-            signOut(1);
+           // signOut(1);
           } else if(rep[1] != "ensc.fr") {
             signOut(2);
           } else {

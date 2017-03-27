@@ -22,7 +22,7 @@
 
     <?php
     $page = explode('/', $_SERVER['PHP_SELF']);
-    if(end($page) == "pageAsso.php")
+    if((end($page) == "pageAsso.php")||(end($page) == "evenement.php"))
     {
             echo '<link href="css/stylePageAsso.php?asso_id='.$asso_id.'" rel="stylesheet" type="text/css" media="all" />';
     } elseif (end($page) == "calendrier.php") {
