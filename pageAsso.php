@@ -124,7 +124,7 @@ include('includes/head.php');
 
                                         foreach ($evenements as $e) {
 
-                                            list($annee, $mois, $jour) = explode("-", $e->even_date);
+                                            list($annee, $mois, $jour) = explode("-", $e->even_dateDeb);
                                             list($heuresD, $minutesD) = explode(":", $e->even_heureDeb);
                                             list($heuresF, $minutesF) = explode(":", $e->even_heureFin);
                                             echo '<tr>
