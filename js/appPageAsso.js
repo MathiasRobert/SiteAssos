@@ -7,7 +7,15 @@ $(".avatar-nav").css({
   left: (pos.left) + "px"
 });
 $(".avatar").css({
-  top: (mainPos.top ) + "px"
+  top: (mainPos.top - ($(".avatar").outerHeight())/2) + "px"
+});
+
+$(window).resize(function() {
+  var pos = $(".avatar").position();
+  $(".avatar-nav").css({
+    position: "absolute",
+    left: (pos.left) + "px"
+  });
 });
 
 $(window).scroll(function() {

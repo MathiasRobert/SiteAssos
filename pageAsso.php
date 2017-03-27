@@ -240,7 +240,7 @@ include('includes/head.php');
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group label-floating <?php if(!isset($_SESSION['NOM_USER'])) echo "is-empty";?>">
-                                                            <label class="control-label">Nom Prénom</label>
+                                                            <label class="control-label">Prénom Nom</label>
                                                             <input type="text" name="name" class="form-control" value="<?php if(isset($_SESSION['NOM_USER'])) echo $_SESSION['NOM_USER'];?>">
                                                             <span class="material-input"></span>
                                                         </div>
