@@ -71,6 +71,10 @@ svg g text {
   margin: -60px auto 0;
 }
 
+.avatar > img, .avatar-nav > img {
+  content: url("../<?php echo $styleAsso->asso_logo; ?>")
+}
+
 .btn,
 .btn:hover,
 .btn:active,

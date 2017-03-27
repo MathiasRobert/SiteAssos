@@ -25,7 +25,7 @@ include('includes/head.php');
         <div class="header header-filter" style="background-image: url('lib/material-kit/img/examples/city.jpg');"></div>
 
         <div class="avatar">
-            <img src="images/bde.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
+            <img alt="Circle Image" class="img-circle img-responsive img-raised">
         </div>
 
         <!-- you can use the class main-raised if you want the main area to be as a page with shadows -->

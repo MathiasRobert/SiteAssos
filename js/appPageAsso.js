@@ -7,7 +7,7 @@ $(".avatar-nav").css({
   left: (pos.left) + "px"
 });
 $(".avatar").css({
-  top: (mainPos.top - ($(".avatar").outerHeight())/2) + "px"
+  top: (mainPos.top ) + "px"
 });
 
 $(window).scroll(function() {
