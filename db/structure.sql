@@ -1,9 +1,9 @@
 drop table if exists UTILISATEUR;
 drop table if exists EVENEMENT;
-drop table if exists CATEGORIE;
 drop table if exists COMMENTAIRE;
 drop table if exists EQUIPE;
 drop table if exists ARTICLE;
+drop table if exists CATEGORIE;
 drop table if exists ASSOCIATION;
 
 
@@ -46,11 +46,12 @@ create table EVENEMENT (
     even_lieu varchar(100) not null,
     even_theme varchar(50),
     even_date date not null,
-    even_heure time,
+    even_heureDeb time,
+    even_heureFin time,
     even_prix int not null,
     even_tarifs text,
     even_nbParticipantsMax int,
-    even_photo varchar(150),
+    even_affiche varchar(150),
     foreign key (asso_id) references ASSOCIATION (asso_id)
 ) engine=innodb character set utf8 collate utf8_unicode_ci;
 

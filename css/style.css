@@ -1,3 +1,7 @@
+.wrapper {
+    margin-top: 70px;
+}
+
 .carousel .carousel-control .material-icons {
     position: absolute;
     top: 50%;
@@ -131,3 +135,10 @@
     height: 200px;
 }
 
+.avatar-nav {
+    display: none;
+}
+
+#calendar {
+    margin-top: 20px;
+}

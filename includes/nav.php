@@ -13,6 +13,9 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="avatar-nav">
+                    <img src="images/bde.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
+                </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <?php include('requeteNav.php'); ?>
@@ -28,7 +31,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href=""><i class="material-icons">event</i> Calendrier</a>
+                    <a href="calendrier.php"><i class="material-icons">event</i> Calendrier</a>
                 </li>
                     <?php
                     if(!isset($_SESSION['NOM_USER']))

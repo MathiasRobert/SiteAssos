@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
     <!-- CSS Files -->
-    <link href="material-kit/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="material-kit/css/material-kit.css" rel="stylesheet"/>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/material-kit/css/material-kit.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
 
     <?php
@@ -25,6 +25,13 @@
     if(end($page) == "pageAsso.php")
     {
             echo '<link href="css/stylePageAsso.php?asso_id='.$asso_id.'" rel="stylesheet" type="text/css" media="all" />';
+    } elseif (end($page) == "calendrier.php") {
+        echo '<link rel="stylesheet" href="lib/full-calendar/css/fullcalendar.min.css" />
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/full-calendar/js/moment.min.js"></script>
+        <script src="lib/full-calendar/js/fullcalendar.min.js"></script>
+        <script src="lib/full-calendar/js/fr.js"></script>
+        <script src="js/calendrier.js"></script>';
     }
     ?>
 

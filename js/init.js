@@ -51,13 +51,19 @@ function signOut(i) {
   auth2.signOut().then(function () {
     $.post("traiteDeconnexionSession.php");
 
+    var url = document.location.href;
+    var arr = url.split('?');
+    var symbole = "?";
+    if (arr.length > 1 && arr[1] !== '') {
+      symbole = "&";
+    }
     if(i == 1)
-      document.location += '?alerteErreurID=true';
+      document.location += symbole + 'alerteErreurID=true';
     else if(i == 2)
-      document.location += '?alerteErreurDomaine=true';
+      document.location += symbole + 'alerteErreurDomaine=true';
     else if(i == 3)
-      document.location += '?alerteErreur=true';
+      document.location += symbole + 'alerteErreur=true';
     else if(i == 0)
-      document.location += '?alerteDeconnexion=true';
+      document.location += symbole + 'alerteDeconnexion=true';
   });
 };
