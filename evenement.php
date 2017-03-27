@@ -49,6 +49,20 @@ include('includes/nav.php');
      $affiche=$evenement->even_affiche;
 ?>
 
+            </div>
+            <div class="row">
+                <div class="col-md-8"><img class="imageEvent" src="<?php echo $affiche?>"></div>
+                <div class="col-md-4">
+                    <h2><?php echo $titre; ?></h2>
+                    <div class="tim-typo">
+                        <span class="tim-note">Lieu de l'événement</span>
+                        <p class="text-info">
+                            <?php echo $lieu ?>                        </p>
+                        <h3><?php echo $dateDeb; ?><?php echo $heureDeb; ?></h3>
+                        <h3><?php echo $dateFin; ?><?php echo $heureFin; ?></h3>
+                        <h3><?php echo $prix; ?></h3>
+                        <h3><?php echo $tarifs; ?></h3></div>
+            </div>
 
 
 

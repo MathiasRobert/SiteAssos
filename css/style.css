@@ -142,3 +142,9 @@
 #calendar {
     margin-top: 20px;
 }
+.imageEvent{
+    height: 800px ;
+    width: 700px;
+    margin-left: 150px;
+    margin-top: 60px;
+}
