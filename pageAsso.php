@@ -164,6 +164,7 @@ include('includes/head.php');
 
                                                     if(isset($_SESSION['ID_USER']))
                                                     {
+                                                        $even_id = $e->even_id;
                                                         include('requetes/requeteVerifInscrit.php');
 
                                                         echo '<a id="'.$e->even_id.'" role="button" class="btn-inscription btn ';
@@ -350,7 +351,7 @@ include('includes/head.php');
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="lib/material-kit/js/material-kit.js" type="text/javascript"></script>
 
-<<script src="lib/moment/moment.min.js" type="text/javascript"></script>
+<script src="lib/moment/moment.min.js" type="text/javascript"></script>
 
 <script src="js/appPageAsso.js" type="text/javascript"></script>
 <script src="js/app.js" type="text/javascript"></script>

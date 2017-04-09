@@ -367,3 +367,83 @@ input[type=checkbox]:checked  + .checkbox-material .check {
     box-shadow: 0 16px 26px -10px rgba(10, 10, 10, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(10, 10, 10, 0.2);
 }
 
+.img-evenement {
+    width: 100%;
+    height: auto;
+}
+
+.main-evenement {
+  padding: 40px;
+}
+
+.main-evenement h2.title {
+  margin-bottom: 0px;
+}
+
+.main-evenement .prix {
+    margin: 10px 0 25px;
+}
+
+.panel {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
+}
+
+.panel .panel-heading {
+    background-color: transparent !important;
+    border-bottom: 1px solid #ddd;
+    padding: 25px 10px 5px 0px;
+}
+
+.panel .panel-heading a {
+    color: #3C4858;
+}
+
+.panel .panel-heading a:hover, .panel .panel-heading a:focus {
+    color: <?php echo $styleAsso->asso_couleur; ?>;
+    text-decoration: none;
+}
+
+.panel .panel-heading .panel-title {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.panel .panel-heading i {
+    float: right;
+}
+
+.panel .panel-heading a[aria-expanded="true"] .panel-title > i, .panel .panel-heading a.expanded .panel-title > i {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.animation-transition-fast, .navbar, .panel .panel-heading i, .presentation-page .section-cards .card, .index-page .section-cards .card, .product-page .flexi-nav > li a {
+    -webkit-transition: all 150ms ease 0s;
+    -moz-transition: all 150ms ease 0s;
+    -o-transition: all 150ms ease 0s;
+    -ms-transition: all 150ms ease 0s;
+    transition: all 150ms ease 0s;
+}
+
+.panel.panel-default .panel-heading + .panel-collapse .panel-body {
+    border: 0 none;
+}
+
+.panel .panel-body {
+    border: 0 none;
+    padding: 15px 0px 5px;
+}
+
+.panel-group .panel+.panel {
+    margin-top: 5px;
+}
+
+.row.text-right{
+  margin-right: 0px;
+}
+
+
