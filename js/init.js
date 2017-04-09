@@ -23,20 +23,17 @@ function attachSignin(element) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           var rep = xhr.responseText.split(' ');
           var profile = googleUser.getBasicProfile();
-          console.log(rep);
-          console.log(profile.getId());
           if(rep[0] != profile.getId()) {
-           // signOut(1);
+            signOut(1);
           } else if(rep[1] != "ensc.fr") {
             signOut(2);
           } else {
             $.post(
               "traiteConnexionSession.php",
-              { name: profile.getName(), image: profile.getImageUrl(), email: profile.getEmail() },
-              function (data) {
-                document.location = data.location;
-              },
-              'json');
+              { id: profile.getId(), name: profile.getName(), image: profile.getImageUrl(), email: profile.getEmail() },
+              'json').done(function () {
+                document.location = "accesAdmin.php";
+              });
           }
         } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status != 200) {
           signOut(3);
@@ -51,21 +48,18 @@ function attachSignin(element) {
 function signOut(i) {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
-    $.post("traiteDeconnexionSession.php");
 
-    var url = document.location.href;
-    var arr = url.split('?');
-    var symbole = "?";
-    if (arr.length > 1 && arr[1] !== '') {
-      symbole = "&";
-    }
-    if(i == 1)
-      document.location += symbole + 'alerteErreurID=true';
-    else if(i == 2)
-      document.location += symbole + 'alerteErreurDomaine=true';
-    else if(i == 3)
-      document.location += symbole + 'alerteErreur=true';
-    else if(i == 0)
-      document.location += symbole + 'alerteDeconnexion=true';
+  var alerte;
+  if(i == 1)
+    alerte = "?alerteErreurID=true";
+  else if(i == 2)
+    alerte = "?alerteErreurDomaine=true";
+  else if(i == 3)
+    alerte = "?alerteErreur=true";
+  else if(i == 0)
+    alerte = "?alerteDeconnexion=true";
+
+  document.location = "traiteDeconnexionSession.php" + alerte;
+
   });
 };

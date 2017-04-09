@@ -3,8 +3,10 @@ session_start();
 
 if(isset($_GET['id']))
     $even_id = $_GET['id'];
+else
+    header('Loaction: pageNonTrouvee.php');
 include('includes/connect.php');
-include('includes/requeteEvenement.php');
+include('requetes/requeteEvenement.php');
 include('includes/fonctions.php');
 $asso_id = $evenement->asso_id;
 ?>

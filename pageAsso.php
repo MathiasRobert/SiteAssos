@@ -3,6 +3,8 @@ session_start();
 
 if(isset($_GET['asso_id']))
     $asso_id = $_GET['asso_id'];
+else
+    header('Location: pageNonTrouvee.php');
 include('includes/connect.php');
 include('includes/fonctions.php');
 ?>
@@ -47,7 +49,7 @@ include('includes/head.php');
                                     <li>
                                         <a href="#evenements" data-toggle="tab">
                                             <i class="material-icons">event_note</i>
-                                            Evènements
+                                            Événements
                                         </a>
                                     </li>
                                     <li class="pull-right">
@@ -75,26 +77,26 @@ include('includes/head.php');
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <?php
-                                            include('includes/requeteArticlesAsso.php');
+                                            include('requetes/requeteArticlesAsso.php');
 
                                             foreach ($articles as $a) {
-
+                                                $texte = wordwrap($a->texteCourt, 90, "&shy;<br>", true);
                                                 echo '<div class="card card-plain card-blog">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="card-image">
-                                                            <div class="img-article img-raised" style="background-image:url('.$a->arti_photo.')"></div>
+                                                            <div class="img-article img-raised" style="background-image:url(\''.$a->arti_photo.'\')"></div>
                                                             <div class="ripple-container"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <h6 class="category text-info">'.$a->cate_nom.'</h6>
                                                         <h3 class="card-title">
-                                                            <a href="#pablo">'.$a->arti_titre.'</a>
+                                                            <a href="article.php?id='.$a->arti_id.'">'.$a->arti_titre.'</a>
                                                         </h3>
-                                                        <p class="card-description">'.$a->texteCourt.'… <a href="#pablo"> Lire Plus </a></p>
+                                                        <p class="card-description">'.$texte.'… <a href="article.php?id='.$a->arti_id.'"> Lire Plus </a></p>
                                                         <p class="author">
-                                                            by <a href="#pablo"><b>Mike Butcher</b></a>, '.$a->arti_dateHeure.'
+                                                        '.$a->arti_dateHeure.'
                                                         </p>
                                                     </div>
                                                 </div>
@@ -108,6 +110,18 @@ include('includes/head.php');
                         </div>
                         <div class="tab-pane" id="evenements">
                             <div class="col-md-10 col-md-offset-1">
+                                <ul class="tri nav nav-pills nav-pills-color">
+                                    <li class="active" onclick="tousLesEve()"><a href="#" data-toggle="tab" aria-expanded="true">Tous</a>
+                                    </li>
+                                    <li class="" onclick="eveAVenir('<?php date_default_timezone_set('Europe/Paris'); echo date('Y-m-d h:i:s');?>')"><a href="#" data-toggle="tab" aria-expanded="false">A venir</a>
+                                    </li>
+                                    <li class="" onclick="evePasse('<?php date_default_timezone_set('Europe/Paris'); echo date('Y-m-d h:i:s');?>')"><a href="#" data-toggle="tab" aria-expanded="false">Passé</a>
+                                    </li>
+                                </ul>
+                                <ul class="triDate nav nav-pills nav-pills-color">
+                                    <li class="active" onclick="triDateCroissant()"><a href="#" data-toggle="tab" aria-expanded="false">Tri date <i class="material-icons">arrow_downward</i></a>
+                                    </li>
+                                </ul>
                                 <div class="table-responsive">
                                     <table class="table table-evenements">
                                         <thead>
@@ -115,36 +129,63 @@ include('includes/head.php');
                                                 <th class="text-center"></th>
                                                 <th>Évenement</th>
                                                 <th class="text-center">Date</th>
-                                                <th></th>
+                                                <th class="text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <?php
-                                        include('includes/requeteEvenementsAsso.php');
+                                        include('requetes/requeteEvenementsAsso.php');
 
                                         foreach ($evenements as $e) {
 
                                             list($annee, $mois, $jour) = explode("-", $e->even_dateDeb);
                                             list($heuresD, $minutesD) = explode(":", $e->even_heureDeb);
                                             list($heuresF, $minutesF) = explode(":", $e->even_heureFin);
-                                            echo '<tr>
+                                            echo '<tr data-date="'.$e->even_dateDeb.' '.$e->even_heureDeb.'">
                                                 <td>
                                                     <div class="img-container">
                                                         <img src="'.$e->even_affiche.'" alt="affiche">
                                                     </div>
                                                 </td>
                                                 <td class="td-name">
-                                                    <a href="#jacket">'.$e->even_titre.'</a>
+                                                    <a href="evenement.php?id='.$e->even_id.'">'.$e->even_titre.'</a>
                                                     <br><small>'.$e->even_lieu.'</small>
                                                 </td>
                                                 <td class="td-number">
                                                     '.$jour.' '.stringMois($mois).' '.$annee.'
                                                     <br><small>'.$heuresD.'h'.$minutesD.' à '.$heuresF.'h'.$minutesF.'</small>
                                                 </td>
-                                                <td class="td-actions">
-                                                    <a href="evenement.php?id='.$e->even_id.'" role="button" class="btn">
-                                                        En savoir plus
-                                                    </a>
+                                                <td class="td-actions text-right">
+                                                    <div class="btn-group-lg btn-group-vertical">
+
+                                                    <a href="evenement.php?id='.$e->even_id.'" role="button" class="btn btn-block">
+                                                        En savoir plus <i class="material-icons">info</i>
+                                                    </a>';
+
+                                                    if(isset($_SESSION['ID_USER']))
+                                                    {
+                                                        include('requetes/requeteVerifInscrit.php');
+
+                                                        echo '<a id="'.$e->even_id.'" role="button" class="btn-inscription btn ';
+                                                        if($estInscrit)
+                                                            echo 'btn-danger';
+                                                        else
+                                                            echo 'btn-success';
+                                                        echo ' btn-block">';
+                                                        if($estInscrit)
+                                                            echo 'Ne plus participer';
+                                                        else
+                                                            echo 'Participer';
+                                                        echo ' <i class="material-icons">';
+                                                        if($estInscrit)
+                                                            echo 'clear';
+                                                        else
+                                                            echo 'done';
+                                                        echo '</i>
+                                                        <div class="ripple-container"></div>
+                                                    </a>';
+                                                    }
+                                                    echo '</div>
                                                 </td>
                                             </tr>';
                                         }
@@ -196,7 +237,7 @@ include('includes/head.php');
 
                                 <div class="row">
                         <?php
-                        include('includes/requeteInfosAsso.php');
+                        include('requetes/requeteInfosAsso.php');
 
                         foreach ($membresAsso as $m) {
                         echo '
@@ -308,6 +349,8 @@ include('includes/head.php');
 
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="lib/material-kit/js/material-kit.js" type="text/javascript"></script>
+
+<<script src="lib/moment/moment.min.js" type="text/javascript"></script>
 
 <script src="js/appPageAsso.js" type="text/javascript"></script>
 <script src="js/app.js" type="text/javascript"></script>

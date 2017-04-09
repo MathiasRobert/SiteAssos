@@ -18,7 +18,7 @@
                 </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <?php include('requeteNav.php'); ?>
+                    <?php include('requetes/requeteNav.php'); ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Les Assos <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     <?php
@@ -37,15 +37,23 @@
                     if(!isset($_SESSION['NOM_USER']))
                         echo '<li><a id="customBtn">Connexion</a></li>';
                     else
+                    {
                         echo '<li class="dropdown">
                                 <a href="#" class="profile-photo dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><div class="profile-photo-small"><img id="avatar" class="img-circle img-responsive" src="'.$_SESSION['URL_IMAGE_USER'].'" alt="avatar"></div> <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                         <li>
-                            <a href="">Mon compte</a>
+                            <a href="utilisateur.php?onglet=informations">Mon compte</a>
+                        </li>
+                        <li>
+                            <a href="utilisateur.php?onglet=evenements">Mes événements</a>
                         </li>
                         <li>
                             <a href="" onClick="signOut(0)">Se déconnecter</a>
-                        </li></ul></li>'
+                        </li></ul></li>';
+                    }
+                    if(isset($_SESSION['ASSO_ID'])) {
+                        echo '<li><a href="admin/admin.php">Admin</a></li> ';
+                    }
                     ?>
             </ul>
 
@@ -60,7 +68,7 @@
 </nav>
 
 <!-- Modal Core -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
         <div class="card card-signup">
@@ -109,4 +117,4 @@
         </div>
     </div>
 </div>
-</div>
+</div> -->

@@ -30,3 +30,11 @@ else if (($('.avatar-nav').css("display") == "block") && ($(window).scrollTop() 
   $('.avatar').css("opacity", "1");
 }
 });
+
+$(document).ready(function () {
+  moment.locale('fr');
+  $('.author').each(function() {
+    var date = $(this).text();
+    $(this).text(moment(date, "YYYY-MM-DD hh:mm:ss").fromNow());
+  });
+});

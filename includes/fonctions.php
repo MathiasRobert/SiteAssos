@@ -1,4 +1,5 @@
 <?php
+
 function stringMois($m) {
   switch ($m) {
     case '01':
@@ -43,3 +44,13 @@ function stringMois($m) {
       break;
   }
 }
+
+function verifAccesAdmin() {
+  if(!isset($_SESSION['ASSO_ID']) || empty($_SESSION['ASSO_ID']))
+  {
+    $_SESSION['alerteAcces'] = "true";
+    header('Location: ../index.php');
+  }
+}
+
+?>

@@ -11,7 +11,7 @@ $(document).ready(function() {
         },
 
         events: {
-        url: 'includes/requeteEvenCalendrier.php',
+        url: 'requetes/requeteEvenCalendrier.php',
         type: 'GET',
         error: function(xhr, status, error) {
           alert(xhr.responseText);

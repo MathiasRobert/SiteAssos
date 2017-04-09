@@ -32,19 +32,19 @@ include('includes/head.php');
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                        <div class="page-header page-header-carousel" style="background-image: url('lib/material-kit/img/bg2.jpeg');">
+                        <div class="page-header page-header-carousel" style="background-image: url('images/beer.jpg');">
                             <div class="carousel-caption">
                                 <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
                             </div></div>
                         </div>
                         <div class="item">
-                        <div class="page-header page-header-carousel" style="background-image: url('lib/material-kit/img/bg3.jpeg');">
+                        <div class="page-header page-header-carousel" style="background-image: url('images/pong.jpg');">
                             <div class="carousel-caption">
                                 <h4><i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
                             </div></div>
                         </div>
                         <div class="item">
-                        <div class="page-header page-header-carousel" style="background-image: url('lib/material-kit/img/bg4.jpeg');">
+                        <div class="page-header page-header-carousel" style="background-image: url('images/party.jpg');">
                             <div class="carousel-caption">
                                 <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
                             </div></div>
@@ -66,15 +66,15 @@ include('includes/head.php');
             <div class="container">
 
                 <div class="row">
-                <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <h1 class="page-header">
                             Bienvenue sur le site des assos de l'ENSC !
                         </h1>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-md-8">
 
                     <?php
-                    include('includes/requeteIndex.php');
+                    include('requetes/requeteIndex.php');
 
                     foreach ($associations as $a) {
                         echo '<div class="col-sm-6 col-md-4">
@@ -89,8 +89,8 @@ include('includes/head.php');
                             </div>';
                     }
                     ?>
-
-                    <div class="col-sm-3 offset-sm-1">
+                    </div>
+                    <div class="col-md-4">
                         <iframe id="fb-integre" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flpm2017%2F&tabs=timeline%2C%20events&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=1516751638566181" width="340" height="500" style="overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                     </div>
                 </div>

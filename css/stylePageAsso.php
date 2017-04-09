@@ -1,17 +1,11 @@
 <?php
 header('content-type: text/css');
 
-// echo ini_get('display_errors');
-// if (!ini_get('display_errors')) {
-//   ini_set('display_errors', '1');
-// }
-// echo ini_get('display_errors');
-
 if(isset($_GET['asso_id']))
   $asso_id = $_GET['asso_id'];
 
 include('../includes/connect.php');
-include('../includes/requeteStyleAsso.php');
+include('../requetes/requeteStyleAsso.php');
 ?>
 
 svg {
@@ -218,6 +212,10 @@ a, a:hover, a:focus {
   color: <?php echo $styleAsso->asso_couleur; ?>;
 }
 
+a:not(.btn), a:active:not(.btn), a:hover:not(.btn), a:focus:not(.btn) {
+  background-color: transparent !important;
+}
+
 input[type=checkbox]:checked  + .checkbox-material .check {
   background: <?php echo $styleAsso->asso_couleur; ?> !important;
 }
@@ -281,3 +279,91 @@ input[type=checkbox]:checked  + .checkbox-material .check {
 .table-evenements .img-container img {
     width: 100%;
 }
+
+.page-header .container {
+    padding-top: 30vh;
+    color: #FFFFFF;
+}
+.page-header .title {
+    color: #FFFFFF;
+}
+.page-header {
+    height: 80vh;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.article .section-text {
+    padding-bottom: 0;
+}
+
+.section, .section-image {
+    background-position: center center;
+    background-size: cover;
+}
+
+.article .section-text p {
+    font-size: 1.35em;
+    line-height: 1.5em;
+    color: #555555;
+    margin-bottom: 30px;
+}
+
+.article .section-comments .title {
+    margin-bottom: 30px;
+}
+
+.media-left, .media > .pull-left {
+    padding: 10px;
+}
+
+.media .avatar-com {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+.media .avatar-com img {
+    width: 100%;
+}
+
+.media .media-body {
+    padding-right: 10px;
+}
+
+.article .media p {
+    color: #555555;
+}
+.media p {
+    color: #999999;
+    font-size: 16px;
+    line-height: 1.6em;
+}
+.media .media-footer .btn {
+    margin-bottom: 20px;
+}
+
+.media .media-body .media .media-body {
+    padding-right: 0px;
+}
+
+.table .td-actions .btn {
+    margin: 0px;
+    margin-bottom: 5px;
+    width: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-pills.nav-pills-color > li.active > a, .nav-pills.nav-pills-color > li.active > a:focus, .nav-pills.nav-pills-color > li.active > a:hover {
+    background-color: <?php echo $styleAsso->asso_couleur; ?> !important;
+    box-shadow: 0 16px 26px -10px rgba(10, 10, 10, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(10, 10, 10, 0.2);
+}
+
