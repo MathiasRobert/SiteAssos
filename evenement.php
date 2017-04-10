@@ -8,7 +8,10 @@ else
 include('includes/connect.php');
 include('requetes/requeteEvenement.php');
 include('includes/fonctions.php');
-$asso_id = $evenement->asso_id;
+if($evenement)
+    $asso_id = $evenement->asso_id;
+else
+    header('Location: pageNonTrouvee.php');
 ?>
 
 <!DOCTYPE html>

@@ -8,7 +8,10 @@ else
 include('includes/connect.php');
 include('requetes/requeteArticle.php');
 include('includes/fonctions.php');
-$asso_id = $article->asso_id;
+if($article)
+    $asso_id = $article->asso_id;
+else
+    header('Location: pageNonTrouvee.php');
 ?>
 
 <!DOCTYPE html>
@@ -145,6 +148,9 @@ include('includes/head.php');
 
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="lib/material-kit/js/material-kit.js" type="text/javascript"></script>
+
+<script src="lib/moment/moment.min.js" type="text/javascript"></script>
+
 
 <script src="js/appPageAsso.js" type="text/javascript"></script>
 <script src="js/app.js" type="text/javascript"></script>
