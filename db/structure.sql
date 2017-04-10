@@ -87,5 +87,7 @@ create table INSCRIPTION (
     util_id integer not null,
     even_id integer not null,
     insc_aPaye boolean not null,
+    foreign key (util_id) references UTILISATEUR (util_id),
+    foreign key (even_id) references EVENEMENT (even_id),
     constraint PK_INSCRIPTION primary key (util_id, even_id)
 ) engine=innodb character set utf8 collate utf8_general_ci;
