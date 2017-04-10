@@ -162,7 +162,10 @@ include('includes/head.php');
                                                         En savoir plus <i class="material-icons">info</i>
                                                     </a>';
 
-                                                    if(isset($_SESSION['ID_USER']))
+                                                    date_default_timezone_set('Europe/Paris');
+                                                    $dateActuelle = date('Y-m-d H:i:s');
+                                                    $dateEven = $e->even_dateDeb.' '.$e->even_heureDeb;
+                                                    if(isset($_SESSION['ID_USER']) && $dateEven > $dateActuelle)
                                                     {
                                                         $even_id = $e->even_id;
                                                         include('requetes/requeteVerifInscrit.php');

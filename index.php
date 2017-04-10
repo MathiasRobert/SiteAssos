@@ -34,19 +34,16 @@ include('includes/head.php');
                         <div class="item active">
                         <div class="page-header page-header-carousel" style="background-image: url('images/beer.jpg');">
                             <div class="carousel-caption">
-                                <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
                             </div></div>
                         </div>
                         <div class="item">
                         <div class="page-header page-header-carousel" style="background-image: url('images/pong.jpg');">
                             <div class="carousel-caption">
-                                <h4><i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
                             </div></div>
                         </div>
                         <div class="item">
                         <div class="page-header page-header-carousel" style="background-image: url('images/party.jpg');">
                             <div class="carousel-caption">
-                                <h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
                             </div></div>
                         </div>
                     </div>

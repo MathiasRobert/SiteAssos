@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(isset($_GET['id']))
     $even_id = $_GET['id'];
 else
@@ -8,7 +7,7 @@ else
 include('includes/connect.php');
 include('requetes/requeteEvenement.php');
 include('includes/fonctions.php');
-if($evenement)
+if(isset($evenement))
     $asso_id = $evenement->asso_id;
 else
     header('Location: pageNonTrouvee.php');
@@ -133,7 +132,10 @@ include('includes/nav.php');
 
                         <div class="row text-right">
                             <?php
-                            if(isset($_SESSION['ID_USER']))
+                            date_default_timezone_set('Europe/Paris');
+                            $dateActuelle = date('Y-m-d H:i:s');
+                            $dateEven = $evenement->even_dateDeb.' '.$evenement->even_heureDeb;
+                            if(isset($_SESSION['ID_USER']) && $dateEven > $dateActuelle)
                             {
                                 $even_id = $evenement->even_id;
                                 include('requetes/requeteVerifInscrit.php');
