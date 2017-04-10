@@ -6,7 +6,6 @@ $stmt->execute();
 $evenements = $stmt->fetchAll(PDO::FETCH_OBJ);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//var_dump($_SERVER);
 $url1 = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 $strUrl = substr_replace($url1, '', strlen($url1) - 34, 34);
 foreach ($evenements as $e) {
