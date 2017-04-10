@@ -842,3 +842,19 @@ select.selectpicker {
 label.error {
   color: #E74C3C;
 }
+
+.card .card-header.card-header-tabs .nav-tabs-title {
+    float: left;
+    padding: 10px 10px 10px 0;
+    line-height: 24px;
+}
+
+.card .card-header.card-header-tabs .nav-tabs {
+    background: transparent;
+    padding: 0;
+}
+
+.table .td-actions .btn-petit {
+    margin: 0px !important;
+    padding: 5px !important;
+}

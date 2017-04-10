@@ -86,5 +86,6 @@ create table COMMENTAIRE (
 create table INSCRIPTION (
     util_id integer not null,
     even_id integer not null,
+    insc_aPaye boolean not null,
     constraint PK_INSCRIPTION primary key (util_id, even_id)
 ) engine=innodb character set utf8 collate utf8_general_ci;

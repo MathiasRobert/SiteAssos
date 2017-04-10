@@ -8,7 +8,7 @@ if(isset($_POST['id']) && isset($_SESSION['ID_USER']))
   $even_id = $_POST['id'];
   $util_id = $_SESSION['ID_USER'];
   if (isset($_POST['action']) && ($_POST['action'] == 'inscription')) {
-    $stmt = $pdo->prepare('INSERT INTO INSCRIPTION (even_id, util_id) VALUES (?, ?)');
+    $stmt = $pdo->prepare('INSERT INTO INSCRIPTION (even_id, util_id, insc_aPaye) VALUES (?, ?, 0)');
     $stmt->execute(array($even_id, $util_id));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }

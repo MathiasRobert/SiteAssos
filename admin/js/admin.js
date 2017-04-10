@@ -72,51 +72,74 @@ $(".select").dropdown({ "dropdownClass": "dropdown-menu", "optionClass": "" });
     });
 
 $('.datetimepicker').datetimepicker({
-            format: 'DD-MM-YYYY H:mm',
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove',
-                inline: true
-            }
-         });
+    format: 'DD-MM-YYYY H:mm',
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove',
+        inline: true
+    }
+});
 
-         $('.datepicker').datetimepicker({
-            format: 'YYYY-MM-DD',
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove',
-                inline: true
-            }
-         });
+$('.datepicker').datetimepicker({
+    format: 'YYYY-MM-DD',
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove',
+        inline: true
+    }
+});
 
-         $('.timepicker').datetimepicker({
-            format: 'H:mm',    // use this format if you want the 24hours timepicker
-//            format: 'h:mm A',    //use this format if you want the 12hours timpiecker with AM/PM toggle
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove',
-                inline: true
+$('.timepicker').datetimepicker({
+    format: 'H:mm',    // use this format if you want the 24hours timepicker
+    //            format: 'h:mm A',    //use this format if you want the 12hours timpiecker with AM/PM toggle
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove',
+        inline: true
 
-            }
-         });
+    }
+});
+
+$(".aPaye").change(function() {
+    if(this.checked) {
+        var id = $(this).attr('id');
+        id = id.split('-');
+        $.post('requetes/requeteAPaye.php', {id_util: id[0], id_even: id[1], aPaye: 1}).success(function() {
+        });
+    } else {
+        var id = $(this).attr('id');
+        id = id.split('-');
+        $.post('requetes/requeteAPaye.php', {id_util: id[0], id_even: id[1], aPaye: 0}).success(function() {
+        });
+    }
+});
+
+$(".btn-desinscription").click(function(){
+    var click = $(this);
+    var id = $(this).attr('id');
+    id = id.split('-');
+    $.post('requetes/requeteDesinscription.php', {id_util: id[0], id_even: id[1]}).success(function() {
+      $("#"+click.attr('id')).closest('tr').remove();
+    });
+});

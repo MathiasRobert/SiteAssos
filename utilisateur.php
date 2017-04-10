@@ -93,7 +93,7 @@ include('includes/head.php');
                                                     </div>
                                                 </div>
 
-                                                <button type="submit" class="btn btn-primary pull-right">Mettre à jour</button>
+                                                <!-- <button type="submit" class="btn btn-primary pull-right">Mettre à jour</button> -->
                                                 <div class="clearfix"></div>
                                             </form>
                                         </div>

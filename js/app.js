@@ -3,7 +3,6 @@ startApp();
 $(".btn-inscription").click(function(){
   var click = $(this);
   if($(this).hasClass('btn-success')) {
-    console.log("salut");
     $.post('requetes/requeteInscriptionEven.php', {id: $(this).attr('id'), action: 'inscription'}).success(function() {
       click.removeClass('btn-success');
       click.addClass('btn-danger');
