@@ -123,7 +123,10 @@ include('includes/head.php');
                                                     <?php
                                                     include('requetes/requeteEvenementsUtilisateur.php');
 
+
                                                     foreach ($evenements as $e) {
+
+                                                        $even_id = $e->even_id;
 
                                                         list($annee, $mois, $jour) = explode("-", $e->even_dateDeb);
                                                         list($heuresD, $minutesD) = explode(":", $e->even_heureDeb);
@@ -160,10 +163,10 @@ include('includes/head.php');
                                                                         echo 'btn-success';
                                                                     echo ' btn-block">';
                                                                     if($estInscrit)
-                                                                        echo 'Ne plus participer';
+                                                                        echo 'Ne plus participer  &nbsp;';
                                                                     else
-                                                                        echo 'Participer';
-                                                                    echo ' <i class="material-icons">';
+                                                                        echo 'Participer  &nbsp;';
+                                                                    echo '<i class="material-icons">';
                                                                     if($estInscrit)
                                                                         echo 'clear';
                                                                     else

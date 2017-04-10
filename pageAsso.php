@@ -174,10 +174,10 @@ include('includes/head.php');
                                                             echo 'btn-success';
                                                         echo ' btn-block">';
                                                         if($estInscrit)
-                                                            echo 'Ne plus participer';
+                                                            echo 'Ne plus participer &nbsp;';
                                                         else
-                                                            echo 'Participer';
-                                                        echo ' <i class="material-icons">';
+                                                            echo 'Participer &nbsp;';
+                                                        echo '<i class="material-icons">';
                                                         if($estInscrit)
                                                             echo 'clear';
                                                         else

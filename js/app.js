@@ -3,10 +3,11 @@ startApp();
 $(".btn-inscription").click(function(){
   var click = $(this);
   if($(this).hasClass('btn-success')) {
+    console.log("salut");
     $.post('requetes/requeteInscriptionEven.php', {id: $(this).attr('id'), action: 'inscription'}).success(function() {
       click.removeClass('btn-success');
       click.addClass('btn-danger');
-      click.html('Ne plus participer <i class="material-icons">clear</i>');
+      click.html('Ne plus participer &nbsp;<i class="material-icons">clear</i>');
     });
   } else {
     $.post('requetes/requeteInscriptionEven.php', {id: $(this).attr('id'), action: 'desinscription'}).success(function() {
@@ -14,7 +15,7 @@ $(".btn-inscription").click(function(){
       if(url.search("utilisateur") == -1) {
         click.removeClass('btn-danger');
         click.addClass('btn-success');
-        click.html('Participer <i class="material-icons">done</i>');
+        click.html('Participer &nbsp;<i class="material-icons">done</i>');
       } else {
         $("#"+click.attr('id')).remove();
       }

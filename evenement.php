@@ -64,7 +64,7 @@ include('includes/nav.php');
                                     </h4>
                                 </a>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true" style="height: 0px;">
+                            <div id="collapseOne" class="panel-collapse collapse in">
                               <div class="panel-body">
                                 <p><?php if(isset($evenement->even_description)) echo $evenement->even_description; ?></p>
                               </div>
@@ -79,7 +79,7 @@ include('includes/nav.php');
                                     </h4>
                                 </a>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div id="collapseTwo" class="panel-collapse collapse">
                               <div class="panel-body">
                                 <p><?php if(isset($evenement->even_tarifs)) echo $evenement->even_tarifs; ?></p>
                               </div>
@@ -94,7 +94,7 @@ include('includes/nav.php');
                                     </h4>
                                 </a>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
+                            <div id="collapseThree" class="panel-collapse collapse">
                               <div class="panel-body">
                                 <p>
                                     <?php
@@ -134,10 +134,10 @@ include('includes/nav.php');
                             {
                                 $even_id = $evenement->even_id;
                                 include('requetes/requeteVerifInscrit.php');
-                                if($estInscrit)
-                                    echo '<button class="btn btn-success btn-round btn-inscription">Participer &nbsp;<i class="material-icons">done</i></button>';
+                                if(!$estInscrit)
+                                    echo '<button id="'.$even_id.'" class="btn btn-success btn-round btn-inscription">Participer &nbsp;<i class="material-icons">done</i></button>';
                                 else
-                                    echo '<button class="btn btn-danger btn-round btn-inscription">Ne plus participer &nbsp;<i class="material-icons">clear</i></button>';
+                                    echo '<button id="'.$even_id.'" class="btn btn-danger btn-round btn-inscription">Ne plus participer &nbsp;<i class="material-icons">clear</i></button>';
                             }
                             ?>
                         </div>
