@@ -40,16 +40,24 @@ if(isset($_SESSION['ASSO_ID']))
   }
 
   if(isset($_POST['maj'])) {
-    $stmt = $pdo->prepare('UPDATE EVENEMENT SET even_titre=?, even_lieu=?, even_categorie=?, even_tarifs=?, even_description=?, even_prix=?, even_dateDeb=?, even_heureDeb=?, even_dateFin=?, even_heureFin=?, even_affiche=case when ? = ? then even_affiche else ? end WHERE even_id=?');
+    $stmt = $pdo->prepare('UPDATE EVENEMENT SET even_titre=?, even_lieu=?, cate_id=?, even_tarifs=?, even_description=?, even_prix=?, even_dateDeb=?, even_heureDeb=?, even_dateFin=?, even_heureFin=?, even_affiche=case when ? = ? then even_affiche else ? end WHERE even_id=?');
     $stmt->execute(array($titre, $lieu, $categorie, $tarifs, $description, $prix, $dateDeb, $heureDeb, $dateFin, $heureFin, $uploadfileBDD, $uploaddir, $uploadfileBDD, $id_evenement));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
   elseif (isset($_POST['ajouter'])) {
-    $stmt = $pdo->prepare('INSERT INTO EVENEMENT (asso_id, even_titre, even_lieu, even_categorie, even_tarifs, even_description, even_prix, even_dateDeb, even_heureDeb, even_dateFin, even_heureFin, even_affiche) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, case when ? = ? then "" else ? end)');
-    $stmt->execute(array($asso_id, $titre, $lieu, $categorie, $tarifs, $description, $prix, $dateDeb, $heureDeb, $dateFin, $heureFin, $uploadfileBDD, $uploaddir, $uploadfileBDD));
+    $stmt = $pdo->prepare('INSERT INTO EVENEMENT (even_titre, even_lieu, cate_id, even_tarifs, even_description, even_prix, even_dateDeb, even_heureDeb, even_dateFin, even_heureFin, even_affiche) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, case when ? = ? then "" else ? end)');
+    $stmt->execute(array($titre, $lieu, $categorie, $tarifs, $description, $prix, $dateDeb, $heureDeb, $dateFin, $heureFin, $uploadfileBDD, $uploaddir, $uploadfileBDD));
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $even_id  = $pdo->lastInsertId();
+
+    $stmt = $pdo->prepare('INSERT INTO CONCERNE (asso_id, even_id) VALUES (?, ?)');
+    $stmt->execute(array($asso_id, $even_id));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
   elseif (isset($_POST['supprimer'])) {
+    $stmt = $pdo->prepare('DELETE FROM CONCERNE WHERE even_id=? AND asso_id=?');
+    $stmt->execute(array($id_evenement, $asso_id));
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $pdo->prepare('DELETE FROM EVENEMENT WHERE even_id=?');
     $stmt->execute(array($id_evenement));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

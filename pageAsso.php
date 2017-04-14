@@ -30,6 +30,17 @@ include('includes/head.php');
             <img alt="Circle Image" class="img-circle img-responsive img-raised">
         </div>
 
+        <div class="block-liens">
+            <button class="btn-liens btn btn-just-icon btn-facebook">
+                <i class="fa fa-facebook"> </i>
+                <div class="ripple-container"></div>
+            </button>
+            <button class="btn-liens btn btn-just-icon">
+                <i class="material-icons">public</i>
+                <div class="ripple-container"></div>
+            </button>
+        </div>
+
         <!-- you can use the class main-raised if you want the main area to be as a page with shadows -->
         <div class="main main-raised">
             <!-- Page Content -->
@@ -148,7 +159,7 @@ include('includes/head.php');
                                                     </div>
                                                 </td>
                                                 <td class="td-name">
-                                                    <a href="evenement.php?id='.$e->even_id.'">'.$e->even_titre.'</a>
+                                                    <a href="evenement.php?id_even='.$e->even_id.'&id_asso='.$asso_id.'">'.$e->even_titre.'</a>
                                                     <br><small>'.$e->even_lieu.'</small>
                                                 </td>
                                                 <td class="td-number">
@@ -158,7 +169,7 @@ include('includes/head.php');
                                                 <td class="td-actions text-right">
                                                     <div class="btn-group-lg btn-group-vertical">
 
-                                                    <a href="evenement.php?id='.$e->even_id.'" role="button" class="btn btn-block">
+                                                    <a href="evenement.php?id_even='.$e->even_id.'&id_asso='.$asso_id.'" role="button" class="btn btn-block">
                                                         En savoir plus <i class="material-icons">info</i>
                                                     </a>';
 
@@ -257,12 +268,11 @@ include('includes/head.php');
                                                 <h4 class="card-title">'.$m->equi_prenom.' '.$m->equi_nom.'</h4>
                                                 <h6 class="category text-muted">'.$m->equi_poste.'</h6>
 
-                                                <p class="card-description">
-                                                    And I love you like Kanye loves Kanye. We need to restart the human foundation.
-                                                </p>
-                                                <div class="footer">
-                                                    <a href="#" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook-square"></i></a>
-                                                    <a class="btn btn-just-icon btn-simple btn-google" data-toggle="popover" data-placement="top" data-content="'.$m->equi_mail.'"><i class="fa fa-envelope"></i></a>
+                                                <p class="card-description">'.$m->equi_description.'</p>
+                                                <div class="footer">';
+                                                    if(isset($m->equi_lien_facebook))
+                                                        echo '<a href="'.$m->equi_lien_facebook.'" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook-square"></i></a>';
+                                                    echo '<a class="btn btn-just-icon btn-simple btn-google" data-toggle="popover" data-placement="top" data-content="'.$m->equi_mail.'"><i class="fa fa-envelope"></i></a>
                                                 </div>
                                             </div>
                                         </div>

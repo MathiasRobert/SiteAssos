@@ -47,7 +47,7 @@ include('includes/start.php');
                         include('../requetes/requeteArticlesAsso.php');
 
                         foreach ($articles as $a) {
-                          $texte = wordwrap($a->texteCourt, 50, "&shy;<br>", true);
+                          $texte = wordwrap($a->texteCourt, 55, "&shy;<br>", true);
                           echo '<tr>
                           <td>
                             <div class="img-container">

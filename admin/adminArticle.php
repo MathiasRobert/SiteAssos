@@ -60,7 +60,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                             <select name="categorie" class="selectpicker" data-style="btn btn-primary btn-round" title="Choisir une catégorie" data-size="7" tabindex="-98" required>
                               <option class="bs-title-option" value="">Choisir une catégorie</option>
                               <?php
-                              include('requetes/requeteCategorie.php');
+                              include('requetes/requeteCategoriesArticle.php');
                               for ($i = 0; $i < count($infosCategories); $i++) {
                                 echo '<option value="'.($i+1).'"';
                                 if(isset($infosArticle->cate_id) && $infosCategories[$i]->cate_id == $infosArticle->cate_id)

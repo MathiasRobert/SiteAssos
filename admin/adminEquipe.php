@@ -77,10 +77,28 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                     </div>
 
                     <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Lien facebook</label>
+                          <input name="facebook" type="url" class="form-control" value="<?php if(isset($infosMembre->equi_lien_facebook)) echo $infosMembre->equi_lien_facebook; ?>">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
                       <div class="col-md-6">
                         <div class="form-group label-floating">
                           <label class="control-label">Poste</label>
                           <input name="poste" type="text" class="form-control" value="<?php if(isset($infosMembre->equi_poste)) echo $infosMembre->equi_poste; ?>" required>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group label-floating">
+                          <label class="control-label">Description (150 caractères max)</label>
+                          <textarea name="description" class="form-control" rows="2"><?php if(isset($infosMembre->equi_description)) echo $infosMembre->equi_description; ?></textarea>
                         </div>
                       </div>
                     </div>

@@ -1,15 +1,16 @@
 <?php
 session_start();
-if(isset($_GET['id']))
-    $even_id = $_GET['id'];
+if(isset($_GET['id_even']) && isset($_GET['id_asso']))
+{
+    $even_id = $_GET['id_even'];
+    $asso_id = $_GET['id_asso'];
+}
 else
     header('Loaction: pageNonTrouvee.php');
 include('includes/connect.php');
 include('requetes/requeteEvenement.php');
 include('includes/fonctions.php');
-if(isset($evenement))
-    $asso_id = $evenement->asso_id;
-else
+if(!isset($evenement) || !$evenement)
     header('Location: pageNonTrouvee.php');
 ?>
 
@@ -31,7 +32,7 @@ include('includes/nav.php');
     <div class="header header-filter" style="background-image: url('lib/material-kit/img/examples/city.jpg');"></div>
 
     <div class="avatar">
-        <img src="images/bde.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
+        <img alt="Circle Image" class="img-circle img-responsive img-raised">
     </div>
 
     <!-- you can use the class main-raised if you want the main area to be as a page with shadows -->

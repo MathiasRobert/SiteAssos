@@ -24,8 +24,9 @@ if($stmt->rowCount() == 0)
   $nom = explode(' ', $_SESSION['NOM_USER'])[1];
   $prenom = explode(' ', $_SESSION['NOM_USER'])[0];
   $mail = $_SESSION['EMAIL_USER'];
-  $stmt = $pdo->prepare('INSERT INTO UTILISATEUR (util_id_google, util_nom, util_prenom, util_mail) VALUES (?, ?, ?, ?)');
-  $stmt->execute(array($id_google, $nom, $prenom, $mail));
+  $photo = $_SESSION['URL_IMAGE_USER'];
+  $stmt = $pdo->prepare('INSERT INTO UTILISATEUR (util_id_google, util_nom, util_prenom, util_mail, util_url_image) VALUES (?, ?, ?, ?, ?)');
+  $stmt->execute(array($id_google, $nom, $prenom, $mail, $photo));
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 

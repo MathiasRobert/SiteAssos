@@ -18,6 +18,10 @@ if(isset($_SESSION['ASSO_ID']))
     $poste = $_POST['poste'];
   if(isset($_POST['mail']))
     $mail = $_POST['mail'];
+  if(isset($_POST['facebook']))
+    $facebook = $_POST['facebook'];
+  if(isset($_POST['description']))
+    $description = $_POST['description'];
   if(isset($_FILES['photo']))
   {
     $uploaddir = "images/$asso_id/equipe/";
@@ -30,13 +34,13 @@ if(isset($_SESSION['ASSO_ID']))
   }
 
   if(isset($_POST['maj'])) {
-    $stmt = $pdo->prepare('UPDATE EQUIPE SET equi_prenom=?, equi_nom=?, equi_surnom=?, equi_poste=?, equi_mail=? ,equi_photo=case when ? = ? then equi_photo else ? end WHERE equi_id=?');
-    $stmt->execute(array($prenom, $nom, $surnom, $poste, $mail, $uploadfileBDD, $uploaddir, $uploadfileBDD, $id_membre));
+    $stmt = $pdo->prepare('UPDATE EQUIPE SET equi_prenom=?, equi_nom=?, equi_surnom=?, equi_poste=?, equi_mail=?, equi_lien_facebook=?, equi_description=?, equi_photo=case when ? = ? then equi_photo else ? end WHERE equi_id=?');
+    $stmt->execute(array($prenom, $nom, $surnom, $poste, $mail, $facebook, $description, $uploadfileBDD, $uploaddir, $uploadfileBDD, $id_membre));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
   elseif (isset($_POST['ajouter'])) {
-    $stmt = $pdo->prepare('INSERT INTO EQUIPE (asso_id, equi_prenom, equi_nom, equi_surnom, equi_poste, equi_mail, equi_photo) VALUES (?, ?, ?, ?, ?, ? ,case when ? = ? then "" else ? end)');
-    $stmt->execute(array($asso_id, $prenom, $nom, $surnom, $poste, $mail, $uploadfileBDD, $uploaddir, $uploadfileBDD));
+    $stmt = $pdo->prepare('INSERT INTO EQUIPE (asso_id, equi_prenom, equi_nom, equi_surnom, equi_poste, equi_mail, equi_lien_facebook, equi_description, equi_photo) VALUES (?, ?, ?, ?, ?, ?, ?, ? ,case when ? = ? then "" else ? end)');
+    $stmt->execute(array($asso_id, $prenom, $nom, $surnom, $poste, $mail, $facebook, $description, $uploadfileBDD, $uploaddir, $uploadfileBDD));
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
   elseif (isset($_POST['supprimer'])) {

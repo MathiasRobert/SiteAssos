@@ -40,6 +40,10 @@ $(window).load(function () {
     top: (mainPos.top - ($(".avatar").outerHeight())/2) + "px"
   });
 
+  $(".block-liens").css({
+    top: (mainPos.top - 110) + "px"
+  });
+
   if(($('.avatar-nav').css("display") == "none") && ($(window).scrollTop() > $('.avatar').offset().top -10)) {
     $('.avatar-nav').css("display", "block");
     $('.avatar').css("opacity", "0");

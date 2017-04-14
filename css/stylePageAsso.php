@@ -446,4 +446,35 @@ input[type=checkbox]:checked  + .checkbox-material .check {
   margin-right: 0px;
 }
 
+.btn-liens {
+  z-index: 2;
+}
+
+.btn-liens > i {
+  font-size: 25px !important;
+}
+
+.btn-liens > .material-icons {
+  margin-left: -10px;
+}
+.btn-liens > .fa {
+  margin-left: -7px;
+}
+
+.btn-liens > i {
+  margin-top: -7px;
+}
+
+.btn-liens {
+  width: 30px;
+}
+
+.btn-liens.btn-facebook {
+  background-color: #3b5998;
+}
+
+.block-liens {
+  position: absolute;
+  left: 88%;
+}
 

@@ -72,6 +72,23 @@ include('includes/start.php');
 
 										<div class="row">
 											<div class="col-md-12">
+												<div class="form-group label-floating">
+													<label class="control-label">Lien facebook</label>
+													<input name="facebook" type="url" class="form-control" value="<?php if(isset($infosAsso->asso_lien_facebook)) echo $infosAsso->asso_lien_facebook; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group label-floating">
+													<label class="control-label">Lien site web</label>
+													<input name="siteweb" type="url" class="form-control" value="<?php if(isset($infosAsso->asso_lien_siteweb)) echo $infosAsso->asso_lien_siteweb; ?>">
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-12">
 												<div class="form-group">
 													<div class="form-group label-floating">
 														<label class="control-label">Description courte (250 lettres max)</label>

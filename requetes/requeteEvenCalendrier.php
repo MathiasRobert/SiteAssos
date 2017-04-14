@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/connect.php');
 
-$stmt = $pdo->prepare("SELECT even_id as url, even_titre as title, even_dateDeb as start, even_dateFin as 'end', even_heureDeb, even_heureFin, asso_couleur as color FROM EVENEMENT, ASSOCIATION WHERE ASSOCIATION.asso_id=EVENEMENT.asso_id");
+$stmt = $pdo->prepare("SELECT EVENEMENT.even_id as url, even_titre as title, even_dateDeb as start, even_dateFin as 'end', even_heureDeb, even_heureFin, asso_couleur as color FROM EVENEMENT INNER JOIN CONCERNE ON EVENEMENT.even_id = CONCERNE.even_id INNER JOIN ASSOCIATION ON CONCERNE.asso_id=ASSOCIATION.asso_id");
 $stmt->execute();
 $evenements = $stmt->fetchAll(PDO::FETCH_OBJ);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

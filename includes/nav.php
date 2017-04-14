@@ -14,11 +14,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="avatar-nav">
-                    <img src="images/bde.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
+                    <img alt="Circle Image" class="img-circle img-responsive img-raised">
                 </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <?php include('requetes/requeteNav.php'); ?>
+
+                    <?php
+                    include('requetes/requeteNav.php');
+                    ?>
+
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Les Assos <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     <?php

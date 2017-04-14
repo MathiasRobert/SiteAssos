@@ -75,6 +75,22 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                               <input name="titre" type="text" class="form-control" value="<?php if(isset($infosEvenement->even_titre)) echo $infosEvenement->even_titre; ?>" required>
                             </div>
                           </div>
+                          <div class="col-lg-4 col-md-6 col-sm-3">
+                            <div class="form-group">
+                                <select name="categorie" class="selectpicker" data-style="btn btn-primary btn-round" title="Choisir une catégorie" data-size="7" tabindex="-98" required>
+                                  <option class="bs-title-option" value="">Choisir une catégorie</option>
+                                  <?php
+                                  include('requetes/requeteCategoriesEvenement.php');
+                                  for ($i = 0; $i < count($infosCategories); $i++) {
+                                    echo '<option value="'.($i+1).'"';
+                                    if(isset($infosEvenement->cate_id) && $infosCategories[$i]->cate_id == $infosEvenement->cate_id)
+                                      echo 'selected';
+                                    echo '>'.$infosCategories[$i]->cate_nom.'</option>';
+                                  }
+                                  ?>
+                                </select>
+                            </div>
+                          </div>
                         </div>
 
                         <div class="row">
@@ -87,12 +103,6 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         </div>
 
                         <div class="row">
-                          <div class="col-md-8">
-                            <div class="form-group label-floating">
-                              <label class="control-label">Catégorie</label>
-                              <input name="categorie" type="text" class="form-control" value="<?php if(isset($infosEvenement->even_categorie)) echo $infosEvenement->even_categorie; ?>">
-                            </div>
-                          </div>
                           <div class="col-md-4">
                             <div class="form-group label-floating">
                               <label class="control-label">Prix (€)</label>

@@ -42,7 +42,7 @@ include('includes/head.php');
     </div>
 
     <div class="avatar">
-        <img src="images/bde.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
+        <img alt="Circle Image" class="img-circle img-responsive img-raised">
     </div>
 
     <!-- you can use the class main-raised if you want the main area to be as a page with shadows -->
@@ -72,48 +72,36 @@ include('includes/head.php');
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="media-area">
-                                <h3 class="title text-center">3 Comments</h3>
+                                <?php include('requetes/requeteCommentaires.php') ?>
+                                <h3 class="title text-center"><?= $stmt->rowCount() ?> Commentaires</h3>
+                                <?php foreach ($commentaires as $c) { ?>
                                 <div class="media">
                                     <a class="pull-left" href="#pablo">
                                         <div class="avatar-com">
-                                            <img class="media-object" src="images/bde.jpg" alt="...">
+                                            <img class="media-object" src="<?= $c->util_url_image ?>" alt="...">
                                         </div>
                                     </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading">Tina Andrew <small>· 7 minutes ago</small></h4>
+                                        <h4 class="media-heading"><?= $c->util_prenom.''.$c->util_nom ?><small>· <?= $c->comm_dateHeure ?></small></h4>
                                         <h6 class="text-muted"></h6>
 
-                                        <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
+                                        <p><?= $c->comm_texte ?></p>
                                     </div>
                                 </div>
-
-                                <div class="media">
-                                  <a class="pull-left" href="#pablo">
-                                      <div class="avatar-com">
-                                         <img class="media-object" alt="Tim Picture" src="images/bda.png">
-                                      </div>
-                                  </a>
-                                  <div class="media-body">
-                                     <h4 class="media-heading">John Camber <small>· Yesterday</small></h4>
-
-                                     <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                                     <p> Don't forget, You're Awesome!</p>
-
-                                  </div>
-                                </div>
+                                <?php } ?>
 
                             </div>
-                            <h3 class="title text-center">Post your comment</h3>
+                            <h3 class="title text-center">Poster votre commentaire</h3>
                             <div class="media media-post">
-                                <a class="pull-left author" href="#pablo">
+                                <a class="pull-left author">
                                     <div class="avatar">
-                                        <img class="media-object" alt="64x64" src="images/bde.jpg">
+                                        <img class="media-object" alt="64x64" src="<?= $_SESSION['URL_IMAGE_USER'] ?>">
                                     </div>
                                 </a>
                                 <div class="media-body">
-                                    <div class="form-group is-empty"><textarea class="form-control" placeholder="Write some nice stuff or nothing..." rows="6"></textarea><span class="material-input"></span></div>
+                                    <div class="form-group is-empty"><textarea class="form-control" placeholder="Votre commentaire" rows="6"></textarea><span class="material-input"></span></div>
                                     <div class="media-footer">
-                                        <a href="#pablo" class="btn btn-round btn-wd pull-right">Post Comment</a>
+                                        <a href="#pablo" class="btn btn-round btn-wd pull-right">Poster</a>
                                     </div>
                                 </div>
                             </div> <!-- end media-post -->
